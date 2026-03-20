@@ -7,16 +7,18 @@ if [ -n "$PAPERCLIP_SECRETS_MASTER_KEY" ]; then
   echo "$PAPERCLIP_SECRETS_MASTER_KEY" > /data/secrets/master.key
 fi
 
-# Inject DATABASE_URL into config.json as database.connectionString
-# (paperclipai doctor reads connectionString from config, not DATABASE_URL env var directly)
-if [ -n "$DATABASE_URL" ]; then
-  node -e "
-    const fs = require('fs');
-    const cfg = JSON.parse(fs.readFileSync('/app/config.json', 'utf8'));
+# Inject DATABASE_URL and optional PUBLIC_URL overrides into config.json
+node -e "
+  const fs = require('fs');
+  const cfg = JSON.parse(fs.readFileSync('/app/config.json', 'utf8'));
+  if (process.env.DATABASE_URL) {
     cfg.database.connectionString = process.env.DATABASE_URL;
-    fs.writeFileSync('/app/config.json', JSON.stringify(cfg, null, 2));
-  "
-fi
+  }
+  if (process.env.PAPERCLIP_PUBLIC_URL) {
+    cfg.auth.publicBaseUrl = process.env.PAPERCLIP_PUBLIC_URL;
+  }
+  fs.writeFileSync('/app/config.json', JSON.stringify(cfg, null, 2));
+"
 
 exec paperclipai run \
   --config /app/config.json \

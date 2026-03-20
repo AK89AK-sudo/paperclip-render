@@ -15,23 +15,22 @@
     "exposure": "public",
     "host": "0.0.0.0",
     "port": 3100,
+    "allowedHostnames": [
+      "bravovalue.com",
+      "www.bravovalue.com",
+      "paperclip-l1cb.onrender.com"
+    ],
     "serveUi": true
   },
   "auth": {
     "baseUrlMode": "explicit",
-    "publicBaseUrl": "https://paperclip-l1cb.onrender.com",
+    "publicBaseUrl": "https://www.bravovalue.com",
     "disableSignUp": false
   },
   "storage": {
     "provider": "local_disk",
     "localDisk": {
       "baseDir": "/data/storage"
-    },
-    "s3": {
-      "bucket": "paperclip",
-      "region": "us-east-1",
-      "prefix": "",
-      "forcePathStyle": false
     }
   },
   "secrets": {
