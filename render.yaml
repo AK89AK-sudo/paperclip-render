@@ -16,8 +16,6 @@ services:
         sync: false
       - key: PAPERCLIP_SECRETS_MASTER_KEY
         sync: false
-      - key: PAPERCLIP_SECRETS_PROVIDER
-        value: env
       - key: PAPERCLIP_SECRETS_STRICT_MODE
         value: "false"
       - key: NODE_NO_WARNINGS

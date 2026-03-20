@@ -2,13 +2,13 @@
   "$meta": {
     "version": 1,
     "updatedAt": "2026-03-20T00:00:00.000Z",
-    "source": "render-deployment"
+    "source": "configure"
   },
   "database": {
     "mode": "postgres"
   },
   "logging": {
-    "mode": "stdout"
+    "mode": "cloud"
   },
   "server": {
     "deploymentMode": "authenticated",
@@ -34,7 +34,7 @@
     }
   },
   "secrets": {
-    "provider": "env",
+    "provider": "local_encrypted",
     "strictMode": false
   }
 }
