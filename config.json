@@ -18,7 +18,7 @@
     "serveUi": true
   },
   "auth": {
-    "baseUrlMode": "custom",
+    "baseUrlMode": "explicit",
     "publicBaseUrl": "https://paperclip-l1cb.onrender.com",
     "disableSignUp": false
   },
