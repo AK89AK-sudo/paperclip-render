@@ -1,0 +1,40 @@
+{
+  "$meta": {
+    "version": 1,
+    "updatedAt": "2026-03-20T00:00:00.000Z",
+    "source": "render-deployment"
+  },
+  "database": {
+    "mode": "postgres"
+  },
+  "logging": {
+    "mode": "stdout"
+  },
+  "server": {
+    "deploymentMode": "authenticated",
+    "exposure": "public",
+    "host": "0.0.0.0",
+    "port": 3100,
+    "serveUi": true
+  },
+  "auth": {
+    "baseUrlMode": "auto",
+    "disableSignUp": false
+  },
+  "storage": {
+    "provider": "local_disk",
+    "localDisk": {
+      "baseDir": "/data/storage"
+    },
+    "s3": {
+      "bucket": "paperclip",
+      "region": "us-east-1",
+      "prefix": "",
+      "forcePathStyle": false
+    }
+  },
+  "secrets": {
+    "provider": "env",
+    "strictMode": false
+  }
+}
