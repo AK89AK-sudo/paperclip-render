@@ -11,7 +11,7 @@ services:
           name: paperclip-db
           property: connectionString
       - key: PAPERCLIP_PUBLIC_URL
-        value: https://paperclip.onrender.com
+        value: https://paperclip-l1cb.onrender.com
       - key: PAPERCLIP_AGENT_JWT_SECRET
         sync: false
       - key: PAPERCLIP_SECRETS_MASTER_KEY
